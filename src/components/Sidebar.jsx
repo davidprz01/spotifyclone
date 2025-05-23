@@ -1,21 +1,22 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+
+  const navigate = useNavigate()
+
   return (
-    <nav 
-      className="w-[28%] h-full p-2 flex flex-col gap-2 text-white"
+    <div 
+      className="w-[25%] h-full p-2 flex flex-col gap-2 text-white hidden lg:flex"
       aria-label="Main navigation"
     >
       {/* Sección de Navegación Principal */}
       <section className="bg-[#121212] h-[15%] rounded flex flex-col justify-around">
-        <button 
-          className="flex items-center gap-3 pl-8 py-3 w-full text-left hover:bg-[#242424] transition-colors"
-          aria-label="Home"
-        >
+        <div onClick={()=>navigate("/")} className="cursor-pointer flex items-center gap-3 pl-8 py-3 w-full text-left hover:bg-[#242424] transition-colors">
           <img className="w-6" src={assets.home_icon} alt="Home icon" />
           <span className="font-bold">Home</span>
-        </button>
+        </div>
         
         <button 
           className="flex items-center gap-3 pl-8 py-3 w-full text-left hover:bg-[#242424] transition-colors"
@@ -69,7 +70,7 @@ const Sidebar = () => {
           </button>
         </article>
       </section>
-    </nav>
+    </div>
   );
 };
 
